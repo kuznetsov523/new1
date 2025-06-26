@@ -7,7 +7,7 @@ const prices = {
 };
 
 function calculatePrice() {
-    const orderText = document.getElementById('orderText').value || ''; 
+    const orderNumber = document.getElementById('orderNumber').value || ''; 
     const width = parseFloat(document.getElementById('width').value); 
     const height = parseFloat(document.getElementById('height').value); 
     const quantity = parseInt(document.getElementById('quantity').value); 
