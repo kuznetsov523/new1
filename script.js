@@ -7,7 +7,11 @@ const prices = {
 };
 
 function calculatePrice() {
-    const orderText = document.getElementById('orderText').value || ''; const width = parseFloat(document.getElementById('width').value); const height = parseFloat(document.getElementById('height').value); const quantity = parseInt(document.getElementById('quantity').value); const material = document.getElementById('materialSelect').value;
+    const orderText = document.getElementById('orderText').value || ''; 
+    const width = parseFloat(document.getElementById('width').value); 
+    const height = parseFloat(document.getElementById('height').value); 
+    const quantity = parseInt(document.getElementById('quantity').value); 
+    const material = document.getElementById('materialSelect').value;
 
     if (!width || !height || !material) return alert("Заполните все поля!");
 
