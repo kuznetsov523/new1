@@ -2,7 +2,7 @@
 .calculator-container {
     max-width: 700px;
     margin: auto;
-    padding: 40px;
+    padding: 20px;
 }
 
 label, input, select, button, textarea {
