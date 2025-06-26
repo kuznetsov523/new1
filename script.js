@@ -25,7 +25,7 @@ function calculatePrice() {
     const totalCost = Math.round(areaOneItem * pricePerUnit * quantity * 100) / 100;
 
     // Формирование результата
-    const resultText = `Заказ №${orderNumber}\nРазмеры: ${width}x${height} мм\nМатериал: ${material}\nКоличество: ${quantity}\nОбщая площадь: ${Math.round(areaOneItem*quantity*100)/100} м²\nИтого: ₽${totalCost}`;
+    const resultText = ` Данные для копирования :${orderNumber}\n ${material}\n ${width}x${height} мм\nКоличество: ${quantity}\nОбщая площадь: ${Math.round(areaOneItem*quantity*100)/100} м²\nИтого: ₽${totalCost}`;
 
     document.getElementById('resultArea').value = resultText;
 }
