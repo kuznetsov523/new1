@@ -22,5 +22,5 @@ button {
 
 textarea {
     height: 400px;
-    resize: vertical;
+    resize: horizontal;
 }
