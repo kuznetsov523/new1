@@ -7,11 +7,11 @@
 </head>
 <body>
 <div class="calculator-container">
-    <h1>Расчёт стоимости изделий из стекла и зеркала WCS</h1>
+    <h1>Расчёт стоимости изделий из стекла и зеркала</h1>
     
     <!-- Поле для ввода номера заказа -->
     <label for="orderNumber">Номер заказа:</label><br>
-    <input type="text" id="orderText" placeholder="Укажите номер"><br>
+    <input type="number" id="orderNumber" placeholder="Укажите номер"><br>
 
     <!-- Поля для ввода размеров изделия -->
     <div class="size-input">
@@ -29,59 +29,15 @@
     <!-- Выбор материала -->
     <label for="materialSelect">Материал:</label><br>
     <select id="materialSelect">
-        <optgroup label="Стекло"> 
-        <option value="600"> Стекло 2 мм</option> 
-        <option value="580"> Стекло 4 мм</option> 
-        <option value="800"> Стекло 5 мм</option> 
-        <option value="850"> Стекло 6 мм</option> 
-        <option value="1250"> Стекло 8 мм</option> 
-        <option value="1550"> Стекло 10 мм</option> 
-        <option value="2200"> Стекло 12 мм</option> 
-        <option value="6000"> Стекло 15 мм</option> 
-        <option value="8000"> Стекло 19 мм</option> 
-        <option value="1600"> Стекло осветленное ОПТИВАЙТ 4 мм</option> 
-        <option value="2400"> Стекло осветленное ОПТИВАЙТ 6 мм</option> 
-        <option value="3150"> Стекло осветленное ОПТИВАЙТ 8 мм</option> 
-        <option value="3900"> Стекло осветленное ОПТИВАЙТ 10 мм</option> 
-        <option value="5400"> Стекло осветленное ОПТИВАЙТ 12 мм</option> 
-        <option value="7200"> Стекло тонированное 4 мм</option> 
-        <option value="1500"> Стекло тонированное 5 мм</option> 
-        <option value="1750"> Стекло тонированное 6 мм</option> 
-        <option value="2450"> Стекло тонированное 8 мм</option> 
-        <option value="2900"> Стекло тонированное 10 мм</option> 
-        <option value="1100"> Стекло сатинированное бесцветное 4 мм</option> 
-        <option value="1300"> Стекло сатинированное бесцветное 5 мм</option> 
-        <option value="1700"> Стекло сатинированное бесцветное 6 мм</option> 
-        <option value="2100"> Стекло сатинированное бесцветное 8 мм</option> 
-        <option value="3200"> Стекло сатинированное бесцветное 10 мм</option> 
-        <option value="1800"> Стекло сатинированное БРОНЗА 4 мм</option> 
-        <option value="2600"> Стекло сатинированное БРОНЗА 5 мм</option> 
-        <option value="3100"> Стекло сатинированное БРОНЗА 6 мм</option> 
-        <option value="3500"> Стекло сатинированное БРОНЗА 8 мм</option> 
-</optgroup> <optgroup label="Триплекс"> 
-        <option value="2000"> Триплекс прозрачный мм</option> 
-        <option value="2300"> Триплекс матовый мм</option> 
-</optgroup> <optgroup label="Зеркало">  
-        <option value="1150"> Зеркало серебро 4 мм</option> 
-        <option value="1400"> Зеркало серебро 5 мм</option> 
-        <option value="1700"> Зеркало серебро 6 мм</option> 
-    <option value="1600"> Зеркало бронзовое 4 мм</option> 
-    <option value="1600"> Зеркало серое 4 мм</option> 
-    <option value="4000"> Зеркало зеленое 4 мм</option> 
-    <option value="4000"> Зеркало темно-синее 4 мм</option> 
-    <option value="4000"> Зеркало темно-серое 4 мм</option> 
-    <option value="5000"> Зеркало состаренное 4 мм</option> 
-    <option value="5000"> Зеркало морена 4 мм</option> 
-    <option value="4000"> Зеркало золото 4 мм</option> 
-    <option value="1800"> Зеркало сатинат серебро 4 мм</option> 
-    <option value="2300"> Зеркало сатинат бронза 4 мм</option> 
-    <option value="4000"> Зеркало сатинат золото 4 мм</option> 
-    <option value="3600"> Лакобель (стандартный цвет) 4мм</option> 
-</optgroup> </select>
+        <option value="">Выберите материал...</option>
+        <option value="стекло">Стекло (обычное)</option>
+        <option value="зеркало">Зеркало</option>
+        <option value="закаленное стекло">Закалённое стекло</option>
+        <option value="декоративное стекло">Декоративное стекло</option>
     </select><br>
 
     <!-- Кнопка расчёта -->
-    <button onclick="calculatePrice()">Форма для заполнения в техкарту</button>
+    <button onclick="calculatePrice()">Рассчитать стоимость</button>
 
     <!-- Итоговая информация -->
     <textarea id="resultArea" readonly></textarea>
