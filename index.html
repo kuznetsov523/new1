@@ -21,11 +21,7 @@
         <label for="height">Ширина (мм):</label><br>
         <input type="number" id="height" required min="1"><br>
     </div>
-
-    <!-- Количество изделий -->
-    <label for="quantity">Количество:</label><br>
-    <input type="number" id="quantity" value="1" min="1"><br>
-
+    
     <!-- Выбор материала -->
     <label for="materialSelect">Материал:</label><br>
     <select id="materialSelect">
@@ -34,8 +30,12 @@
         <option value="зеркало">Зеркало</option>
         <option value="закаленное стекло">Закалённое стекло</option>
         <option value="декоративное стекло">Декоративное стекло</option>
-    </select><br>
-
+  
+    <!-- Количество изделий -->
+    <label for="quantity">Количество:</label><br>
+    <input type="number" id="quantity" value="1" min="1"><br>
+  </select><br>
+  
     <!-- Кнопка расчёта -->
     <button onclick="calculatePrice()">Вставить в техкарту</button>
 
