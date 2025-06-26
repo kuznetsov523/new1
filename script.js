@@ -10,7 +10,7 @@ function calculatePrice() {
     if (!width || !height || !material) return alert("Заполните все поля!");
 
     // Формирование результата
-    const resultText = `${orderNumber} ${material} ${width}x${height} мм\nКоличество: ${quantity};
+    const resultText = `${orderNumber} ${material} ${width}x${height} мм \n Количество: ${quantity};
 
     document.getElementById('resultArea').value = resultText;
-}
+    }
