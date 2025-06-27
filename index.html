@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Расчёт технической карты</title>
+    <title>Расчет технической карты</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,15 +23,21 @@
             </div>
             
             <label for="dimensions">Размеры (Д х Ш в мм):</label>
-            
-            <!-- Контейнер для полей ввода размеров -->
             <div class="dimension-input-group">
                 <input type="number" id="length" min="1" placeholder="Длина" required>
                 <input type="number" id="width" min="1" placeholder="Ширина" required>
             </div>
             
+            <label for="processing">Обработка:</label>
+            <select id="processing" required>
+                <option disabled selected>Выберите обработку</option>
+                <option value="Покрытие ПК">Покрытие ПК</option>
+                <option value="Шлифовка">Шлифовка</option>
+                <option value="Фацетирование">Фацетирование</option>
+            </select>
+            
             <label for="quantity">Количество изделий:</label>
-            <input type="number" id="quantity" min="1" placeholder="Кол-во изделий" required>
+            <input type="number" id="quantity" min="1" placeholder="Количество изделий" required>
         </section>
         
         <footer>
