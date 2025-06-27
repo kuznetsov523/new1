@@ -1,99 +1,25 @@
-// Функция обновления полей при выборе материала
-function updateFields() {
-    const material = document.querySelector('input[name="material"]:checked').value;
-    let typesOptions = '';
-    let thicknessOptions = '';
-    let processingOptions = '';
+const outputDiv = document.getElementById('output');
 
-    if (material === 'glass') { // Если выбрано стекло
-        typesOptions += '<select id="type">';
-        ['Прозрачное(зеленое)', 'Осветлённое(оптивайт)', 'Матовое', 'Серое', 'Бронзовое'].forEach(type => {
-            typesOptions += `<option value="${type}">${type}</option>`;
-        });
-        typesOptions += '</select>';
-        
-        thicknessOptions += '<select id="thickness">';
-        [3, 4, 5, 6, 8, 10, 12].forEach(thickness => {
-            thicknessOptions += `<option value="${thickness}">${thickness} мм</option>`;
-        });
-        thicknessOptions += '</select>';
-        
-        processingOptions += '<select id="processing">';
-        ['ПК', 'Шлифовка', 'Фацетирование'].forEach(processing => {
-            processingOptions += `<option value="${processing}">${processing}</option>`;
-        });
-        processingOptions += '</select>';
-    }
-    else if (material === 'mirror') { // Если выбрано зеркало
-        typesOptions += '<select id="type">';
-        ['Серебряное', 'Осветлённое', 'Графитовое', 'Состаренное'].forEach(type => {
-            typesOptions += `<option value="${type}">${type}</option>`;
-        });
-        typesOptions += '</select>';
-        
-        thicknessOptions += '<select id="thickness">';
-        [4, 6].forEach(thickness => {
-            thicknessOptions += `<option value="${thickness}">${thickness} мм</option>`;
-        });
-        thicknessOptions += '</select>';
-        
-        processingOptions += '<select id="processing">';
-        ['ПК', 'Шлифовка', 'Фацетирование'].forEach(processing => {
-            processingOptions += `<option value="${processing}">${processing}</option>`;
-        });
-        processingOptions += '</select>';
-    }
+function calculateResult() {
+    const orderNumber = document.getElementById('order-number').value.trim();
+    const selectedMaterial = document.querySelector('input[name="material"]:checked').value;
+    const length = document.getElementById('length').value;
+    const width = document.getElementById('width').value;
+    const quantity = document.getElementById('quantity').value;
 
-    document.getElementById("typeSelect").innerHTML = typesOptions;
-    document.getElementById("thicknessSelect").innerHTML = thicknessOptions;
-    document.getElementById("processingSelect").innerHTML = processingOptions;
+    // Вычисления и заполнение данных
+    const sizeOutput = `${length}mm × ${width}mm`;
+    const thicknessOutput = 'Unknown'; // Предполагается динамическое вычисление
+    const processingOutput = 'PC'; // Предполагается динамическое вычисление
+
+    // Вывести результат
+    document.getElementById('order-number-output').textContent = orderNumber;
+    document.getElementById('material-output').textContent = selectedMaterial;
+    document.getElementById('type-output').textContent = 'Transparent'; // Здесь должна быть реальная информация
+    document.getElementById('size-output').textContent = sizeOutput;
+    document.getElementById('thickness-output').textContent = thicknessOutput;
+    document.getElementById('processing-output').textContent = processingOutput;
+    document.getElementById('qty-output').textContent = quantity;
+
+    outputDiv.classList.toggle('hidden');
 }
-
-// Функция расчёта результатов
-function calculateResults() {
-    const orderNumber = document.getElementById('orderNumber').value.trim();
-    const materialRadioValue = document.querySelector('input[name="material"]:checked').value;
-    let materialText = '';
-
-    if (materialRadioValue === 'glass') {
-        materialText = 'стекло';
-    } else if (materialRadioValue === 'mirror') {
-        materialText = 'зеркало';
-    }
-
-    const type = document.getElementById('type').value;
-    const length = parseInt(document.getElementById('length').value.trim()); // Преобразуем в целое число
-    const width = parseInt(document.getElementById('width').value.trim());
-    const thickness = document.getElementById('thickness').value + ' мм';
-    const processing = document.getElementById('processing').value;
-    const quantity = parseInt(document.getElementById('quantity').value.trim());
-
-     if (!orderNumber) {
-        alert('Ошибка: Необходимо заполнить поле "Номер заказа"!');
-        return;
-    }
-
-    // Проверка отсутствия нулевых значений
-    if (isNaN(length) || isNaN(width) || isNaN(quantity)) {
-        alert('Ошибка: не хватает данных.');
-        return;
-    }
-
-    if (length <= 0 || width <= 0 || quantity <= 0) {
-        alert('Оло! Все числовые поля должны быть больше 0!');
-        return;
-    }
-
-    const resultString = `${orderNumber}, ${materialText}, ${type}, ${length}x${width}x${thickness}, ${processing}`;
-
-    document.getElementById('results').innerHTML =
-        `
-        <p>Итого в техкарту:<br>${resultString}</p>
-        <p>Количество изделий: ${quantity}</p>
-        `;
-}
-
-// Обновляем поля сразу при загрузке страницы
-window.onload = function () {
-    updateFields();
-};
