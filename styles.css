@@ -104,6 +104,28 @@ footer button:hover {
     font-weight: bold;
     color: #007aff;
 }
-.dimension-input-group {
-    margin-top: 20px; /* Смещаем вниз на 20 пикселей */
+
+.select-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #007aff;
+    outline: none;
 }
