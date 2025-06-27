@@ -43,6 +43,12 @@
     <button onclick="calculateResults()">Рассчитать</button>
     <div id="results"></div>
 </div>
+    <!-- Material selection -->
+<div class="material-select">
+    <p>Материал:</p>
+    <input type="radio" name="material" value="glass" checked onclick="updateFields(); addExplosion(this);"> Стекло<br>
+    <input type="radio" name="material" value="mirror" onclick="updateFields(); addExplosion(this);"> Зеркало
+</div>
 <script src="script.js"></script>
 </body>
 </html>
