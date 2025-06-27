@@ -13,11 +13,11 @@
     <label for="orderNumber">Номер заказа:</label><br>
     <input type="text" id="orderNumber"><br><br>
     
-    <!-- Материал -->
+    <!-- Выбор материала -->
     <div class="material-select">
         <p>Материал:</p>
-        <input type="radio" name="material" value="glass" checked onclick="updateFields(); addExplosion(this);"> Стекло<br>
-        <input type="radio" name="material" value="mirror" onclick="updateFields(); addExplosion(this);"> Зеркало
+        <input type="radio" name="material" value="glass" checked onclick="updateFields()"> Стекло<br>
+        <input type="radio" name="material" value="mirror" onclick="updateFields()"> Зеркало
     </div>
     
     <!-- Тип стекла/зеркала -->
@@ -40,7 +40,7 @@
     <input type="number" id="quantity" min="1"><br><br>
     
     <!-- Итоги -->
-   <button onclick="calculateResults()">Рассчитать</button>
+    <button onclick="calculateResults()">Рассчитать</button>
     <div id="results"></div>
 </div>
 <script src="script.js"></script>

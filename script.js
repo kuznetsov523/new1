@@ -4,16 +4,6 @@ function updateFields() {
     let typesOptions = '';
     let thicknessOptions = '';
     let processingOptions = '';
-    // Эффекты взрыва
-let explosionTimeout = null;
-
-function addExplosion(element) {
-    clearTimeout(explosionTimeout); // очищаем предыдущий таймер
-    element.classList.add('explosion-trigger'); // добавляем класс запуска анимации
-    explosionTimeout = setTimeout(() => {
-        element.classList.remove('explosion-trigger'); // удаляем класс после окончания анимации
-    }, 500); // продолжительность анимации 500 мс
-}
 
     if (material === 'glass') { // Если выбрано стекло
         typesOptions += '<select id="type">';
