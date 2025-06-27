@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple Style Calculator</title>
+    <title>Form Layout Example</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,8 +23,12 @@
             </div>
             
             <label for="dimensions">Dimensions (L x W in mm):</label>
-            <input type="number" id="length" min="1" placeholder="Length" required>
-            <input type="number" id="width" min="1" placeholder="Width" required>
+            
+            <!-- Контейнер для полей ввода размера -->
+            <div class="dimension-input-group">
+                <input type="number" id="length" min="1" placeholder="Length" required>
+                <input type="number" id="width" min="1" placeholder="Width" required>
+            </div>
             
             <label for="quantity">Quantity of Items:</label>
             <input type="number" id="quantity" min="1" placeholder="Items Quantity" required>
