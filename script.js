@@ -49,18 +49,26 @@ function updateFields() {
     document.getElementById("processingSelect").innerHTML = processingOptions;
 }
 
-// Функция расчета результатов
+// Функция расчёта результатов
 function calculateResults() {
     const orderNumber = document.getElementById('orderNumber').value.trim();
-    const material = document.querySelector('input[name="material"]:checked').value;
+    const materialRadioValue = document.querySelector('input[name="material"]:checked').value;
+    let materialText = ''; // Переменная для хранения русского названия
+
+    if (materialRadioValue === 'glass') {
+        materialText = 'стекло';
+    } else if (materialRadioValue === 'mirror') {
+        materialText = 'зеркало';
+    }
+
     const type = document.getElementById('type').value;
-    const length = document.getElementById('length').value;   // Удаляем единицы измерения
-    const width = document.getElementById('width').value;     // Удаляем единицы измерения
-    const thickness = document.getElementById('thickness').value + ' мм'; // Оставляем единицу измерения толщины
+    const length = document.getElementById('length').value; // Без единиц измерения
+    const width = document.getElementById('width').value;   // Без единиц измерения
+    const thickness = document.getElementById('thickness').value + ' мм'; // Сохраняем единицу измерения
     const processing = document.getElementById('processing').value;
     const quantity = document.getElementById('quantity').value;
 
-    const resultString = `${orderNumber}, ${material}, ${type}, ${length}x${width}x${thickness}, ${processing}`;
+    const resultString = `${orderNumber}, ${materialText}, ${type}, ${length}x${width}x${thickness}, ${processing}`;
 
     document.getElementById('results').innerHTML =
         `
