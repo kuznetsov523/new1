@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Layout Example</title>
+    <title>Расчёт технической карты</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="calculator">
     <header>
-        <h1>Calculator App</h1>
+        <h1>Калькулятор технических карт</h1>
     </header>
     <form onsubmit="return false;" autocomplete="off">
         <section class="input-section">
-            <label for="order-number">Order Number:</label>
-            <input type="text" id="order-number" required placeholder="Enter Order Number">
+            <label for="order-number">Номер заказа:</label>
+            <input type="text" id="order-number" required placeholder="Введите номер заказа">
             
-            <label for="material-type">Material Type:</label>
+            <label for="material-type">Тип материала:</label>
             <div class="radio-group">
-                <label><input type="radio" name="material" value="Glass" checked> Glass</label>
-                <label><input type="radio" name="material" value="Mirror"> Mirror</label>
+                <label><input type="radio" name="material" value="Стекло" checked> Стекло</label>
+                <label><input type="radio" name="material" value="Зеркало"> Зеркало</label>
             </div>
             
-            <label for="dimensions">Dimensions (L x W in mm):</label>
+            <label for="dimensions">Размеры (Д х Ш в мм):</label>
             
-            <!-- Контейнер для полей ввода размера -->
+            <!-- Контейнер для полей ввода размеров -->
             <div class="dimension-input-group">
-                <input type="number" id="length" min="1" placeholder="Length" required>
-                <input type="number" id="width" min="1" placeholder="Width" required>
+                <input type="number" id="length" min="1" placeholder="Длина" required>
+                <input type="number" id="width" min="1" placeholder="Ширина" required>
             </div>
             
-            <label for="quantity">Quantity of Items:</label>
-            <input type="number" id="quantity" min="1" placeholder="Items Quantity" required>
+            <label for="quantity">Количество изделий:</label>
+            <input type="number" id="quantity" min="1" placeholder="Кол-во изделий" required>
         </section>
         
         <footer>
-            <button type="button" onclick="calculateResult()">Calculate</button>
+            <button type="button" onclick="calculateResult()">Рассчитать</button>
         </footer>
     </form>
     
     <div id="output" class="hidden">
-        <h2>Technical Card Result:</h2>
+        <h2>Результат расчёта:</h2>
         <ul>
-            <li>Order #: <span id="order-number-output"></span></li>
-            <li>Material: <span id="material-output"></span></li>
-            <li>Type: <span id="type-output"></span></li>
-            <li>Size: <span id="size-output"></span></li>
-            <li>Thickness: <span id="thickness-output"></span></li>
-            <li>Processing: <span id="processing-output"></span></li>
-            <li>Qty: <span id="qty-output"></span></li>
+            <li>Номер заказа: <span id="order-number-output"></span></li>
+            <li>Материал: <span id="material-output"></span></li>
+            <li>Тип: <span id="type-output"></span></li>
+            <li>Размер: <span id="size-output"></span></li>
+            <li>Толщина: <span id="thickness-output"></span></li>
+            <li>Обработка: <span id="processing-output"></span></li>
+            <li>Количество: <span id="qty-output"></span></li>
         </ul>
     </div>
 </div>
