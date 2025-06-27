@@ -72,7 +72,7 @@ function calculateResults() {
 
     document.getElementById('results').innerHTML =
         `
-        <p>Итоговая техническая карта:<br>${resultString}</p>
+        <p>Итого в техкарту:<br>${resultString}</p>
         <p>Количество изделий: ${quantity}</p>
         `;
 }
