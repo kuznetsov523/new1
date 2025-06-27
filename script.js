@@ -19,7 +19,7 @@ function calculateResult() {
     // Вывод результатов
     document.getElementById('order-number-output').textContent = orderNumber;
     document.getElementById('material-output').textContent = selectedMaterial;
-    document.getElementById('type-output').textContent = 'Прозрачный'; // Здесь возможна модификация
+    document.getElementById('type-output').textContent = 'Error'; // Здесь возможна модификация
     document.getElementById('size-output').textContent = sizeOutput;
     document.getElementById('thickness-output').textContent = thicknessOutput;
     document.getElementById('processing-output').textContent = processingOutput;
