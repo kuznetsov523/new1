@@ -16,11 +16,56 @@
             <label for="order-number">Номер заказа:</label>
             <input type="text" id="order-number" required placeholder="Введите номер заказа">
             
-            <!-- Меняем местами блок "Тип материала" -->
             <label for="material-type">Тип материала:</label>
             <div class="radio-group">
-                <label><input type="radio" name="material" value="Стекло" checked> Стекло</label>
-                <label><input type="radio" name="material" value="Зеркало"> Зеркало</label>
+                <label><input type="radio" name="material" value="Стекло" checked onclick="showAdditionalField()"> Стекло</label>
+                <label><input type="radio" name="material" value="Зеркало" onclick="showAdditionalField()"> Зеркало</label>
+            </div>
+            
+            <!-- Дополнительные поля для стекла -->
+            <div id="additional-field-glass" style="display:block;">
+                <label for="glass-type">Тип стекла:</label>
+                <select id="glass-type">
+                    <option value="">Выберите тип стекла</option>
+                    <option value="Прозрачное">Прозрачное</option>
+                    <option value="Осветлённое">Осветлённое</option>
+                    <option value="Матовое">Матовое</option>
+                    <option value="Серое">Серое</option>
+                    <option value="Бронзовое">Бронзовое</option>
+                </select>
+                
+                <!-- Поле выбора толщины для стекла -->
+                <label for="thickness-glass">Толщина стекла:</label>
+                <select id="thickness-glass">
+                    <option value="">Выберите толщину</option>
+                    <option value="3">3 мм</option>
+                    <option value="4">4 мм</option>
+                    <option value="5">5 мм</option>
+                    <option value="6">6 мм</option>
+                    <option value="8">8 мм</option>
+                    <option value="10">10 мм</option>
+                    <option value="12">12 мм</option>
+                </select>
+            </div>
+            
+            <!-- Дополнительные поля для зеркала -->
+            <div id="additional-field-mirror" style="display:none;">
+                <label for="mirror-type">Тип зеркала:</label>
+                <select id="mirror-type">
+                    <option value="">Выберите тип зеркала</option>
+                    <option value="Серебряное">Серебряное</option>
+                    <option value="Осветлённое">Осветлённое</option>
+                    <option value="Графитовое">Графитовое</option>
+                    <option value="Состаренное">Состаренное</option>
+                </select>
+                
+                <!-- Поле выбора толщины для зеркала -->
+                <label for="thickness-mirror">Толщина зеркала:</label>
+                <select id="thickness-mirror">
+                    <option value="">Выберите толщину</option>
+                    <option value="4">4 мм</option>
+                    <option value="6">6 мм</option>
+                </select>
             </div>
             
             <label for="dimensions">Размеры (Д х Ш в мм):</label>
@@ -37,7 +82,6 @@
                 <option value="Фацетирование">Фацетирование</option>
             </select>
             
-            <!-- Ставим блок "Количество изделий" после обработки -->
             <label for="quantity">Количество изделий:</label>
             <input type="number" id="quantity" min="1" placeholder="Количество изделий" required>
         </section>
@@ -49,15 +93,8 @@
     
     <div id="output" class="hidden">
         <h2>Результат расчёта:</h2>
-        <ul>
-            <li>Номер заказа: <span id="order-number-output"></span></li>
-            <li>Материал: <span id="material-output"></span></li>
-            <li>Тип: <span id="type-output"></span></li>
-            <li>Размер: <span id="size-output"></span></li>
-            <li>Толщина: <span id="thickness-output"></span></li>
-            <li>Обработка: <span id="processing-output"></span></li>
-            <li>Количество: <span id="qty-output"></span></li>
-        </ul>
+        <p id="final-result"></p>
+        <p>Количество: <span id="qty-output"></span></p>
     </div>
 </div>
 
