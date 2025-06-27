@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Расчет технической карты</title>
+    <title>Расчёт технической карты</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,6 +16,7 @@
             <label for="order-number">Номер заказа:</label>
             <input type="text" id="order-number" required placeholder="Введите номер заказа">
             
+            <!-- Меняем местами блок "Тип материала" -->
             <label for="material-type">Тип материала:</label>
             <div class="radio-group">
                 <label><input type="radio" name="material" value="Стекло" checked> Стекло</label>
@@ -36,6 +37,7 @@
                 <option value="Фацетирование">Фацетирование</option>
             </select>
             
+            <!-- Ставим блок "Количество изделий" после обработки -->
             <label for="quantity">Количество изделий:</label>
             <input type="number" id="quantity" min="1" placeholder="Количество изделий" required>
         </section>
