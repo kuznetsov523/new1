@@ -7,7 +7,7 @@ function updateFields() {
 
     if (material === 'glass') { // Если выбрано стекло
         typesOptions += '<select id="type">';
-        ['Прозрачное', 'Осветленное', 'Матовое', 'Серое', 'Бронзовое'].forEach(type => {
+        ['Прозрачный', 'Осветлённый', 'Матовый', 'Серый', 'Бронза'].forEach(type => {
             typesOptions += `<option value="${type}">${type}</option>`;
         });
         typesOptions += '</select>';
@@ -19,14 +19,14 @@ function updateFields() {
         thicknessOptions += '</select>';
         
         processingOptions += '<select id="processing">';
-        ['ПК', 'Шлиф', 'Фацет'].forEach(processing => {
+        ['ПК', 'Шлифовка', 'Фацетирование'].forEach(processing => {
             processingOptions += `<option value="${processing}">${processing}</option>`;
         });
         processingOptions += '</select>';
     }
     else if (material === 'mirror') { // Если выбрано зеркало
         typesOptions += '<select id="type">';
-        ['Серебро', 'Осветленное', 'Графит', 'Состаренное'].forEach(type => {
+        ['Серебряное', 'Осветлённое', 'Графитовое', 'Состаренное'].forEach(type => {
             typesOptions += `<option value="${type}">${type}</option>`;
         });
         typesOptions += '</select>';
@@ -38,7 +38,7 @@ function updateFields() {
         thicknessOptions += '</select>';
         
         processingOptions += '<select id="processing">';
-        ['ПК', 'Шлиф', 'Фацет'].forEach(processing => {
+        ['ПК', 'Шлифовка', 'Фацетирование'].forEach(processing => {
             processingOptions += `<option value="${processing}">${processing}</option>`;
         });
         processingOptions += '</select>';
@@ -54,9 +54,9 @@ function calculateResults() {
     const orderNumber = document.getElementById('orderNumber').value.trim();
     const material = document.querySelector('input[name="material"]:checked').value;
     const type = document.getElementById('type').value;
-    const length = document.getElementById('length').value + ' мм';
-    const width = document.getElementById('width').value + ' мм';
-    const thickness = document.getElementById('thickness').value + ' мм';
+    const length = document.getElementById('length').value;   // Удаляем единицы измерения
+    const width = document.getElementById('width').value;     // Удаляем единицы измерения
+    const thickness = document.getElementById('thickness').value + ' мм'; // Оставляем единицу измерения толщины
     const processing = document.getElementById('processing').value;
     const quantity = document.getElementById('quantity').value;
 
