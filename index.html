@@ -26,12 +26,9 @@
     
     <!-- Размеры изделия -->
     <label for="length">Длина (мм):</label><br>
-    <input type="number" id="length" min="10" max="3000"><br>
+    <input type="number" id="length" min="1" placeholder="Минимум 1 мм"><br>
     <label for="width">Ширина (мм):</label><br>
-    <input type="number" id="width" min="10" max="3000"><br>
-    <input type="number" id="length" min="1" placeholder="Минимум 1 мм">
-    <input type="number" id="width" min="1" placeholder="Минимум 1 мм">
-    <input type="number" id="quantity" min="1" placeholder="Минимум 1 изделие">
+    <input type="number" id="width" min="10" placeholder="Минимум 1 мм"><br>
     
     <!-- Толщина стекла/зеркала -->
     <div id="thicknessSelect"></div>
@@ -42,7 +39,7 @@
     
     <!-- Количество изделий -->
     <label for="quantity">Количество изделий:</label><br>
-    <input type="number" id="quantity" min="1"><br><br>
+    <input type="number" id="quantity" min="1" placeholder="Минимум 1 изделие"><br><br>
     
     <!-- Итоги -->
     <button onclick="calculateResults()">Рассчитать</button>
