@@ -75,7 +75,7 @@ function calculateResults() {
     }
 
     if (length <= 0 || width <= 0 || quantity <= 0) {
-        alert('Все числовые поля должны содержать положительные числа!');
+        alert('Оло! Все числовые поля должны быть больше 0!');
         return;
     }
 
