@@ -68,6 +68,11 @@ function calculateResults() {
     const processing = document.getElementById('processing').value;
     const quantity = parseInt(document.getElementById('quantity').value.trim());
 
+     if (!orderNumber) {
+        alert('Ошибка: Необходимо заполнить поле "Номер заказа"!');
+        return;
+    }
+
     // Проверка отсутствия нулевых значений
     if (isNaN(length) || isNaN(width) || isNaN(quantity)) {
         alert('Ошибка: не хватает данных.');
