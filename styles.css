@@ -104,6 +104,6 @@ footer button:hover {
     font-weight: bold;
     color: #007aff;
 }
-#length {
-    margin-top: 100px; /* Опускаем на 20 пикселей вниз */
+.dimension-input-group {
+    margin-top: 20px; /* Смещаем вниз на 20 пикселей */
 }
