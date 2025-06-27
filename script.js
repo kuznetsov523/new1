@@ -5,7 +5,7 @@ function updateFields() {
     let thicknessOptions = '';
     let processingOptions = '';
 
-    if (material === 'Стекло') { // Если выбрано стекло
+    if (material === 'glass') { // Если выбрано стекло
         typesOptions += '<select id="type">';
         ['Прозрачное', 'Осветленное', 'Матовое', 'Серое', 'Бронзовое'].forEach(type => {
             typesOptions += `<option value="${type}">${type}</option>`;
@@ -19,12 +19,12 @@ function updateFields() {
         thicknessOptions += '</select>';
         
         processingOptions += '<select id="processing">';
-        ['ПК', 'Шлифовка', 'Фацет'].forEach(processing => {
+        ['ПК', 'Шлиф', 'Фацет'].forEach(processing => {
             processingOptions += `<option value="${processing}">${processing}</option>`;
         });
         processingOptions += '</select>';
     }
-    else if (material === 'Зеркало') { // Если выбрано зеркало
+    else if (material === 'mirror') { // Если выбрано зеркало
         typesOptions += '<select id="type">';
         ['Серебро', 'Осветленное', 'Графит', 'Состаренное'].forEach(type => {
             typesOptions += `<option value="${type}">${type}</option>`;
@@ -38,7 +38,7 @@ function updateFields() {
         thicknessOptions += '</select>';
         
         processingOptions += '<select id="processing">';
-        ['ПК', 'Шлифовка', 'Фацет'].forEach(processing => {
+        ['ПК', 'Шлиф', 'Фацет'].forEach(processing => {
             processingOptions += `<option value="${processing}">${processing}</option>`;
         });
         processingOptions += '</select>';
@@ -60,7 +60,7 @@ function calculateResults() {
     const processing = document.getElementById('processing').value;
     const quantity = document.getElementById('quantity').value;
 
-    const resultString = `${orderNumber},${material},${type},${length}x${width}x${thickness},${processing}`;
+    const resultString = `${orderNumber}, ${material}, ${type}, ${length}x${width}x${thickness}, ${processing}`;
 
     document.getElementById('results').innerHTML =
         `
