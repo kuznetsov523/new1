@@ -7,7 +7,7 @@ function updateFields() {
 
     if (material === 'glass') { // Если выбрано стекло
         typesOptions += '<select id="type">';
-        ['Прозрачное', 'Осветлённое', 'Матовое', 'Серое', 'Бронзовое'].forEach(type => {
+        ['Прозрачное(зеленое)', 'Осветлённое(оптивайт)', 'Матовое', 'Серое', 'Бронзовое'].forEach(type => {
             typesOptions += `<option value="${type}">${type}</option>`;
         });
         typesOptions += '</select>';
