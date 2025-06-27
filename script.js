@@ -62,15 +62,20 @@ function calculateResults() {
     }
 
     const type = document.getElementById('type').value;
-    const length = document.getElementById('length').value.trim(); // Проверяем длину
-    const width = document.getElementById('width').value.trim();   // Проверяем ширину
+    const length = parseInt(document.getElementById('length').value.trim()); // Преобразуем в целое число
+    const width = parseInt(document.getElementById('width').value.trim());
     const thickness = document.getElementById('thickness').value + ' мм';
     const processing = document.getElementById('processing').value;
-    const quantity = document.getElementById('quantity').value.trim(); // Проверяем количество
+    const quantity = parseInt(document.getElementById('quantity').value.trim());
 
-    // Проверка обязательности полей
-    if (!orderNumber || !length || !width || !quantity) {
-        alert('Дорогой, заполни поля');
+    // Проверка отсутствия нулевых значений
+    if (isNaN(length) || isNaN(width) || isNaN(quantity)) {
+        alert('Ошибка: введены недопустимые символы.');
+        return;
+    }
+
+    if (length <= 0 || width <= 0 || quantity <= 0) {
+        alert('Все числовые поля должны содержать положительные числа!');
         return;
     }
 
