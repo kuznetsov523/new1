@@ -1,10 +1,40 @@
+// Отображение дополнительного поля в зависимости от выбора материала
+function showAdditionalField() {
+    const glassSelected = document.querySelector('input[value="Стекло"]').checked;
+    const mirrorSelected = document.querySelector('input[value="Зеркало"]').checked;
+
+    const additionalGlass = document.getElementById('additional-field-glass');
+    const additionalMirror = document.getElementById('additional-field-mirror');
+
+    if (glassSelected) {
+        additionalGlass.style.display = 'block';
+        additionalMirror.style.display = 'none';
+    } else if (mirrorSelected) {
+        additionalMirror.style.display = 'block';
+        additionalGlass.style.display = 'none';
+    }
+}
+
+// Основной скрипт расчётов
 function calculateResult() {
     const orderNumber = document.getElementById('order-number').value.trim();
     const selectedMaterial = document.querySelector('input[name="material"]:checked').value;
     const length = parseInt(document.getElementById('length').value.trim()) || 0;
     const width = parseInt(document.getElementById('width').value.trim()) || 0;
     const quantity = parseInt(document.getElementById('quantity').value.trim()) || 0;
-    const processingMethod = document.getElementById('processing').value; // Получаем выбранную обработку
+    const processingMethod = document.getElementById('processing').value;
+
+    // Определение типа (стекла или зеркала)
+    let typeOutput = '';
+    let thicknessOutput = '';
+
+    if (selectedMaterial === 'Стекло') {
+        typeOutput = document.getElementById('glass-type').value;
+        thicknessOutput = document.getElementById('thickness-glass').value;
+    } else if (selectedMaterial === 'Зеркало') {
+        typeOutput = document.getElementById('mirror-type').value;
+        thicknessOutput = document.getElementById('thickness-mirror').value;
+    }
 
     // Проверка, что заказ и размеры указаны
     if (!orderNumber || length === 0 || width === 0) {
@@ -12,20 +42,21 @@ function calculateResult() {
         return;
     }
 
-    // Формирование результатов
-    const sizeOutput = `${length}мм × ${width}мм`;
-    const thicknessOutput = 'Не задано'; // Возможность указать реальную толщину позднее
-    const processingOutput = processingMethod; // Берём выбранную обработку
+    // Формирование результата в правильном формате
+    const sizeOutput = `${length}×${width}×${thicknessOutput}`;
+    const finalResult = `${orderNumber}, ${selectedMaterial}, ${typeOutput}, ${sizeOutput}, ${processingMethod}`;
 
     // Вывод результатов
-    document.getElementById('order-number-output').textContent = orderNumber;
-    document.getElementById('material-output').textContent = selectedMaterial;
-    document.getElementById('type-output').textContent = 'Прозрачный'; // Тут возможна модификация
-    document.getElementById('size-output').textContent = sizeOutput;
-    document.getElementById('thickness-output').textContent = thicknessOutput;
-    document.getElementById('processing-output').textContent = processingOutput;
+    document.getElementById('final-result').textContent = finalResult;
     document.getElementById('qty-output').textContent = quantity;
 
     // Открываем область с результатом
     document.getElementById('output').classList.remove('hidden');
 }
+
+// Изначально показываем поля для стекла
+document.getElementById('additional-field-glass').style.display = 'block';
+document.getElementById('additional-field-mirror').style.display = 'none';
+
+// Покажем нужное поле при первом открытии страницы
+showAdditionalField();
