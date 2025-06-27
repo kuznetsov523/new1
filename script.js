@@ -53,7 +53,7 @@ function updateFields() {
 function calculateResults() {
     const orderNumber = document.getElementById('orderNumber').value.trim();
     const materialRadioValue = document.querySelector('input[name="material"]:checked').value;
-    let materialText = ''; // Переменная для хранения русского названия
+    let materialText = '';
 
     if (materialRadioValue === 'glass') {
         materialText = 'стекло';
@@ -62,11 +62,17 @@ function calculateResults() {
     }
 
     const type = document.getElementById('type').value;
-    const length = document.getElementById('length').value; // Без единиц измерения
-    const width = document.getElementById('width').value;   // Без единиц измерения
-    const thickness = document.getElementById('thickness').value + ' мм'; // Сохраняем единицу измерения
+    const length = document.getElementById('length').value.trim(); // Проверяем длину
+    const width = document.getElementById('width').value.trim();   // Проверяем ширину
+    const thickness = document.getElementById('thickness').value + ' мм';
     const processing = document.getElementById('processing').value;
-    const quantity = document.getElementById('quantity').value;
+    const quantity = document.getElementById('quantity').value.trim(); // Проверяем количество
+
+    // Проверка обязательности полей
+    if (!orderNumber || !length || !width || !quantity) {
+        alert('Дорогой, заполни поля');
+        return;
+    }
 
     const resultString = `${orderNumber}, ${materialText}, ${type}, ${length}x${width}x${thickness}, ${processing}`;
 
