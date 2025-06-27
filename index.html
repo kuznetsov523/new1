@@ -2,26 +2,30 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Калькулятор расчёта стекла и зеркал </title>
+    <title>Калькулятор расчёта стекла и зеркал</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="calculator-container">
-    <h1>Расчёт стоимости изделий из стекла и зеркала WCS</h1>
+    <h1>Расчёт стоимости изделий из стекла и зеркала</h1>
     
     <!-- Поле для ввода номера заказа -->
     <label for="orderNumber">Номер заказа:</label><br>
-    <input type="text" id="orderText" placeholder="Укажите номер заказа"><br>
+    <input type="number" id="orderNumber" placeholder="Укажите номер"><br>
 
     <!-- Поля для ввода размеров изделия -->
     <div class="size-input">
-        <label for="width">Длинна (мм):</label><br>
+        <label for="width">Ширина (мм):</label><br>
         <input type="number" id="width" required min="1"><br>
         
-        <label for="height">Ширина (мм):</label><br>
+        <label for="height">Высота (мм):</label><br>
         <input type="number" id="height" required min="1"><br>
     </div>
-    
+
+    <!-- Количество изделий -->
+    <label for="quantity">Количество:</label><br>
+    <input type="number" id="quantity" value="1" min="1"><br>
+
     <!-- Выбор материала -->
     <label for="materialSelect">Материал:</label><br>
     <select id="materialSelect">
@@ -31,14 +35,9 @@
         <option value="закаленное стекло">Закалённое стекло</option>
         <option value="декоративное стекло">Декоративное стекло</option>
     </select><br>
-    
-    <!-- Количество изделий -->
-    <label for="quantity">Количество:</label><br>
-    <input type="number" id="quantity" value="1" min="1"><br>
 
-  
     <!-- Кнопка расчёта -->
-    <button onclick="calculatePrice()">Вставить в техкарту</button>
+    <button onclick="calculatePrice()">Рассчитать стоимость</button>
 
     <!-- Итоговая информация -->
     <textarea id="resultArea" readonly></textarea>
