@@ -87,3 +87,15 @@ function calculateResults() {
 window.onload = function () {
     updateFields();
 };
+----
+// Эффекты взрыва
+let explosionTimeout = null;
+
+function addExplosion(element) {
+    clearTimeout(explosionTimeout); // Очистка предыдущего таймера
+    element.classList.add('explosion-trigger'); // Запуск анимации
+    explosionTimeout = setTimeout(() => {
+        element.classList.remove('explosion-trigger'); // Удаление класса после завершения анимации
+    }, 500); // Продолжительность анимации 500 мс
+}
+
