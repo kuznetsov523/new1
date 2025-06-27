@@ -1,4 +1,4 @@
-/* Расширенный и аккуратный дизайн */
+/* Оптимизация стиля полей ввода */
 * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 600px; /* Увеличили ширину контейнера */
+    max-width: 600px;
     margin: auto;
     padding: 10px;
     background-color: #fefdfd;
@@ -33,11 +33,18 @@ input[type=number],
 select {
     display: block;
     width: 100%;
-    margin-bottom: 5px; /* Уменьшение отступа после каждого элемента */
+    margin-bottom: 5px; /* Общий отступ после элементов */
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
     transition: all 0.3s ease-in-out;
+}
+
+/* Специальные стили для конкретных полей */
+#length-label,
+#width-label,
+#quantity-label {
+    margin-bottom: 0 !important; /* Убираем отступы после полей длины, ширины и количества */
 }
 
 input:focus,
