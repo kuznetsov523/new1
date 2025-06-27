@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Калькулятор расчёта стекла и зеркал</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="calculator-container">
-    <h1>Расчёт стоимости изделий из стекла и зеркала</h1>
+<div class="container">
+    <h2>Калькулятор заказов</h2>
     
-    <!-- Поле для ввода номера заказа -->
-    <label for="orderNumber">Номер заказа:</label><br>
-    <input type="number" id="orderNumber" placeholder="Укажите номер"><br>
-
-    <!-- Поля для ввода размеров изделия -->
-    <div class="size-input">
-        <label for="width">Ширина (мм):</label><br>
-        <input type="number" id="width" required min="1"><br>
-        
-        <label for="height">Высота (мм):</label><br>
-        <input type="number" id="height" required min="1"><br>
-    </div>
-
-    <!-- Количество изделий -->
-    <label for="quantity">Количество:</label><br>
-    <input type="number" id="quantity" value="1" min="1"><br>
+    <!-- Номер заказа -->
+    <label for="orderNumber">Номер заказа:</label>
+    <input type="text" id="orderNumber" placeholder="Укажите номер заказа">
 
     <!-- Выбор материала -->
-    <label for="materialSelect">Материал:</label><br>
-    <select id="materialSelect">
-        <option value="">Выберите материал...</option>
-        <option value="стекло">Стекло (обычное)</option>
-        <option value="зеркало">Зеркало</option>
-        <option value="закаленное стекло">Закалённое стекло</option>
-        <option value="декоративное стекло">Декоративное стекло</option>
-    </select><br>
+    <div>
+        <p>Выберите материал:</p>
+        <input type="radio" name="materialType" value="Стекло" checked onclick="showGlassOptions()"> Стекло<br>
+        <input type="radio" name="materialType" value="Зеркало" onclick="showMirrorOptions()"> Зеркало
+    </div>
 
-    <!-- кнопка стала формировать результат -->
-    <button onclick="formatResult()">Сформировать результат</button>
-    
-    <!-- Итоговая информация -->
-    <textarea id="resultArea" readonly></textarea>
+    <!-- Тип стекла или зеркала -->
+    <div id="glassTypes" style="display:block;">
+        <select id="glassType">
+            <option value="">Тип стекла...</option>
+            <option value="Прозрачное">Прозрачное</option>
+            <option value="Осветленное">Осветленное</option>
+            <option value="Матовое">Матовое</option>
+            <option value="Серое">Серое</option>
+            <option value="Бронзовое">Бронзовое</option>
+        </select>
+    </div>
+
+    <div id="mirrorTypes" style="display:none;">
+        <select id="mirrorType">
+            <option value="">Тип зеркала...</option>
+            <option value="Серебро">Серебро</option>
+            <option value="Осветленное">Осветленное</option>
+            <option value="Графит">Графит</option>
+            <option value="Состаренное">Состаренное</option>
+        </select>
+    </div>
+
+    <!-- Кнопка расчета стоимости -->
+    <button onclick="calculatePrice()">Рассчитать стоимость</button>
+
+    <!-- Результат расчета -->
+    <div id="result"></div>
 </div>
-<script src="script.js"></script>
-</body>
 </html>
