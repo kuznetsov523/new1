@@ -1,33 +1,75 @@
-<script>
-// Скрытие ненужных полей
-function showGlassOptions() {
-    document.getElementById('glassTypes').style.display = 'block';
-    document.getElementById('mirrorTypes').style.display = 'none';
-}
+// Функция обновления полей при выборе материала
+function updateFields() {
+    const material = document.querySelector('input[name="material"]:checked').value;
+    let typesOptions = '';
+    let thicknessOptions = '';
+    let processingOptions = '';
 
-function showMirrorOptions() {
-    document.getElementById('glassTypes').style.display = 'none';
-    document.getElementById('mirrorTypes').style.display = 'block';
-}
-
-// Расчет цены (можно дописать свою логику)
-function calculatePrice() {
-    let orderNum = document.getElementById("orderNumber").value;
-    let material = document.querySelector('input[name="materialType"]:checked').value;
-    let glassType = document.getElementById("glassType").value || '';
-    let mirrorType = document.getElementById("mirrorType").value || '';
-
-    // Простейший расчет (для примера):
-    if (!orderNum.trim()) return alert("Заполните номер заказа");
-
-    let resultText = `Заказ №${orderNum}<br>Материал: ${material}`;
-
-    if (material === "Стекло") {
-        resultText += `<br>Тип стекла: ${glassType}`;
-    } else if (material === "Зеркало") {
-        resultText += `<br>Тип зеркала: ${mirrorType}`;
+    if (material === 'glass') { // Если выбрано стекло
+        typesOptions += '<select id="type">';
+        ['Прозрачное', 'Осветленное', 'Матовое', 'Серое', 'Бронзовое'].forEach(type => {
+            typesOptions += `<option value="${type}">${type}</option>`;
+        });
+        typesOptions += '</select>';
+        
+        thicknessOptions += '<select id="thickness">';
+        [3, 4, 5, 6, 8, 10, 12].forEach(thickness => {
+            thicknessOptions += `<option value="${thickness}">${thickness} мм</option>`;
+        });
+        thicknessOptions += '</select>';
+        
+        processingOptions += '<select id="processing">';
+        ['ПК', 'Шлиф', 'Фацет'].forEach(processing => {
+            processingOptions += `<option value="${processing}">${processing}</option>`;
+        });
+        processingOptions += '</select>';
+    }
+    else if (material === 'mirror') { // Если выбрано зеркало
+        typesOptions += '<select id="type">';
+        ['Серебро', 'Осветленное', 'Графит', 'Состаренное'].forEach(type => {
+            typesOptions += `<option value="${type}">${type}</option>`;
+        });
+        typesOptions += '</select>';
+        
+        thicknessOptions += '<select id="thickness">';
+        [4, 6].forEach(thickness => {
+            thicknessOptions += `<option value="${thickness}">${thickness} мм</option>`;
+        });
+        thicknessOptions += '</select>';
+        
+        processingOptions += '<select id="processing">';
+        ['ПК', 'Шлиф', 'Фацет'].forEach(processing => {
+            processingOptions += `<option value="${processing}">${processing}</option>`;
+        });
+        processingOptions += '</select>';
     }
 
-    document.getElementById("result").innerHTML = resultText + "<hr><b>Общая сумма: 0 руб.</b>";
+    document.getElementById("typeSelect").innerHTML = typesOptions;
+    document.getElementById("thicknessSelect").innerHTML = thicknessOptions;
+    document.getElementById("processingSelect").innerHTML = processingOptions;
 }
-</script>
+
+// Функция расчета результатов
+function calculateResults() {
+    const orderNumber = document.getElementById('orderNumber').value.trim();
+    const material = document.querySelector('input[name="material"]:checked').value;
+    const type = document.getElementById('type').value;
+    const length = document.getElementById('length').value + ' мм';
+    const width = document.getElementById('width').value + ' мм';
+    const thickness = document.getElementById('thickness').value + ' мм';
+    const processing = document.getElementById('processing').value;
+    const quantity = document.getElementById('quantity').value;
+
+    const resultString = `${orderNumber}, ${material}, ${type}, ${length}x${width}x${thickness}, ${processing}`;
+
+    document.getElementById('results').innerHTML =
+        `
+        <p>Итоговая техническая карта:<br>${resultString}</p>
+        <p>Количество изделий: ${quantity}</p>
+        `;
+}
+
+// Обновляем поля сразу при загрузке страницы
+window.onload = function () {
+    updateFields();
+};
