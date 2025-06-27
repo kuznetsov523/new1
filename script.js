@@ -70,7 +70,7 @@ function calculateResults() {
 
     // Проверка отсутствия нулевых значений
     if (isNaN(length) || isNaN(width) || isNaN(quantity)) {
-        alert('Ошибка: введены недопустимые символы.');
+        alert('Ошибка: не хватает данных.');
         return;
     }
 
