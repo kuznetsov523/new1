@@ -1,4 +1,4 @@
-/* Компактный мягкий пастельный дизайн */
+/* Расширенный и аккуратный дизайн */
 * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 400px;
+    max-width: 600px; /* Увеличили ширину контейнера */
     margin: auto;
     padding: 10px;
     background-color: #fefdfd;
@@ -33,7 +33,7 @@ input[type=number],
 select {
     display: block;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Уменьшение отступа после каждого элемента */
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
