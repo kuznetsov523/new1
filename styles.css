@@ -92,25 +92,32 @@ button:hover {
     margin-top: 10px;
     
 }
-.explosion-trigger::after {
+/* Новый стиль для эффекта взрыва */
+.input-explosion::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    z-index: 1;
+    top: calc(50% - 10px); /* Центрируем по вертикали */
+    left: calc(50% - 10px); /* Центрируем по горизонтали */
     width: 20px;
     height: 20px;
-    transform: translate(-50%, -50%);
-    background-image: radial-gradient(circle at center, transparent, yellow, red);
+    background-image: radial-gradient(circle at center, yellow, orange, red);
+    border-radius: 50%; /* делаем круглым */
     opacity: 0;
-    animation: explode 0.5s forwards;
+    animation: explode 0.5s linear forwards;
+}
+
+/* Класс для запуска эффекта взрыва */
+.explosion-trigger {
+    position: relative; /* нужен относительный родитель для позиции ::before */
 }
 
 @keyframes explode {
-    from {
+    0% {
         transform: scale(0);
         opacity: 1;
     }
-    to {
+    100% {
         transform: scale(1);
         opacity: 0;
     }
