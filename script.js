@@ -1,31 +1,21 @@
-// script.js
-const prices = {
-    'стекло': 50,
-    'зеркало': 70,
-    'закаленное стекло': 100,
-    'декоративное стекло': 120
-};
+// Удалили массив цен
 
-function calculatePrice() {
+function formatResult() {
     const orderNumber = document.getElementById('orderNumber').value || '';
     const width = parseFloat(document.getElementById('width').value);
     const height = parseFloat(document.getElementById('height').value);
-    const quantity = parseInt(document.getElementById('quantity').value);
     const material = document.getElementById('materialSelect').value;
+    const heatTreatmentChecked = document.getElementById('heatTreatmentCheckbox').checked ? 'Да' : 'Нет';
 
-    if (!width || !height || !material) return alert("Заполните все поля!");
+    if (!width || !height || !material) return alert("Заполните все обязательные поля!");
 
-    // Расчет площади одного изделия
-    const areaOneItem = (width * height / 1_000_000); // Перевод мм² в м²
+    // Формируем итоговую строку
+    const resultText = `
+        Номер заказа: ${orderNumber}
+        Материал: ${material}
+        Ширина (мм): ${width}
+        Высота (мм): ${height}
+        Закалка: ${heatTreatmentChecked}`;
 
-    // Стоимость одной единицы материала
-    let pricePerUnit = prices[material];
-
-    // Общая цена всех изделий
-    const totalCost = Math.round(areaOneItem * pricePerUnit * quantity * 100) / 100;
-
-    // Формирование результата
-    const resultText = `Заказ №${orderNumber}\nРазмеры: ${width}x${height} мм\nМатериал: ${material}\nКоличество: ${quantity}\nОбщая площадь: ${Math.round(areaOneItem*quantity*100)/100} м²\nИтого: ₽${totalCost}`;
-
-    document.getElementById('resultArea').value = resultText;
+    document.getElementById('resultArea').value = resultText.trim();
 }
