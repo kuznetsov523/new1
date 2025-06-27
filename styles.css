@@ -1,93 +1,106 @@
-/* Оптимизация стиля полей ввода */
+/* Базовые настройки */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica Neue, Arial, sans-serif;
 }
 
 body {
-    background-color: #fcfafd;
-    color: #4c4b4b;
-    padding: 10px;
-    line-height: 1.4;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
 }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    padding: 10px;
-    background-color: #fefdfd;
+.calculator {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fbfbfb;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+header h1 {
+    font-size: 2rem;
     text-align: center;
-    color: #6C5EBA;
-    font-size: 1.5em;
-    margin-top: 0;
+    color: #007aff;
+    margin-bottom: 20px;
 }
 
-label,
-input[type=text],
-input[type=number],
-select {
-    display: block;
-    width: 100%;
-    margin-bottom: 5px; /* Общий отступ после элементов */
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    transition: all 0.3s ease-in-out;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Специальные стили для конкретных полей */
-#length-label,
-#width-label,
-#quantity-label {
-    margin-bottom: 0 !important; /* Убираем отступы после полей длины, ширины и количества */
+.label-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 5px;
 }
 
-input:focus,
-select:focus {
-    outline: none;
-    border-color: #6C5EBA;
-    box-shadow: 0 0 5px rgba(108, 94, 186, 0.5);
+.radio-group label {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1rem;
+    color: #333;
 }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 8px;
-    background-color: #6C5EBA;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #5A4CAF;
-}
-
-#results p {
-    font-size: 16px;
-    font-weight: bold;
-    color: #4B3D99;
-    margin-top: 10px;
-}
-
-.material-select input[type=radio] {
+.radio-group input[type="radio"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #007aff;
+    vertical-align: middle;
     margin-right: 5px;
 }
 
-.type-select select option,
-.thickness-select select option,
-.processing-select select option {
-    padding: 5px;
+.radio-group input[type="radio"]:checked {
+    background-color: #007aff;
 }
 
-.results-container {
-    margin-top: 10px;
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #007aff;
+    outline: none;
+}
+
+footer button {
+    padding: 10px 20px;
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+    background-color: #005eb8;
+}
+
+.hidden {
+    display: none;
+}
+
+.output ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.output li span {
+    font-weight: bold;
+    color: #007aff;
 }
