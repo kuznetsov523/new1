@@ -1,25 +1,30 @@
-const outputDiv = document.getElementById('output');
-
 function calculateResult() {
     const orderNumber = document.getElementById('order-number').value.trim();
     const selectedMaterial = document.querySelector('input[name="material"]:checked').value;
-    const length = document.getElementById('length').value;
-    const width = document.getElementById('width').value;
-    const quantity = document.getElementById('quantity').value;
+    const length = parseInt(document.getElementById('length').value.trim()) || 0;
+    const width = parseInt(document.getElementById('width').value.trim()) || 0;
+    const quantity = parseInt(document.getElementById('quantity').value.trim()) || 0;
 
-    // Вычисления и заполнение данных
-    const sizeOutput = `${length}mm × ${width}mm`;
-    const thicknessOutput = 'Unknown'; // Предполагается динамическое вычисление
-    const processingOutput = 'PC'; // Предполагается динамическое вычисление
+    // Проверка, что заказ и размеры указаны
+    if (!orderNumber || length === 0 || width === 0) {
+        alert('Необходимо заполнить номер заказа и размеры изделия.');
+        return;
+    }
 
-    // Вывести результат
+    // Формирование результатов
+    const sizeOutput = `${length}мм × ${width}мм`;
+    const thicknessOutput = 'Не задано'; // Допустимо задать реальную толщину позже
+    const processingOutput = 'Стандартная обработка'; // Можно выбрать нужную обработку
+
+    // Вывод результатов
     document.getElementById('order-number-output').textContent = orderNumber;
     document.getElementById('material-output').textContent = selectedMaterial;
-    document.getElementById('type-output').textContent = 'Transparent'; // Здесь должна быть реальная информация
+    document.getElementById('type-output').textContent = 'Прозрачный'; // Здесь возможна модификация
     document.getElementById('size-output').textContent = sizeOutput;
     document.getElementById('thickness-output').textContent = thicknessOutput;
     document.getElementById('processing-output').textContent = processingOutput;
     document.getElementById('qty-output').textContent = quantity;
 
-    outputDiv.classList.toggle('hidden');
+    // Открываем область с результатом
+    document.getElementById('output').classList.remove('hidden');
 }
