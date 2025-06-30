@@ -9,7 +9,7 @@
 <body>
 <div class="calculator">
     <header>
-        <h1>Калькулятор технических карт</h1>
+        <h1>Калькулятор техкарт</h1>
     </header>
     <form onsubmit="return false;" autocomplete="off">
         <section class="input-section">
@@ -34,8 +34,8 @@
                     <label for="glass-type">Тип стекла:</label>
                     <select id="glass-type" required>
                         <option value="" disabled selected>Выберите тип стекла</option>
-                        <option value="Прозрачное">Прозрачное</option>
-                        <option value="Осветлённое">Осветлённое</option>
+                        <option value="Прозрачное">Прозрачное(зел.)</option>
+                        <option value="Осветлённое">Осветлённое(оптивайт)</option>
                         <option value="Матовое">Матовое</option>
                         <option value="Серое">Серое</option>
                         <option value="Бронзовое">Бронзовое</option>
@@ -63,7 +63,7 @@
                     <select id="mirror-type" required>
                         <option value="" disabled selected>Выберите тип зеркала</option>
                         <option value="Серебряное">Серебряное</option>
-                        <option value="Осветлённое">Осветлённое</option>
+                        <option value="Осветлённое">Осветлённое(оптивайт)</option>
                         <option value="Графитовое">Графитовое</option>
                         <option value="Состаренное">Состаренное</option>
                     </select>
@@ -91,9 +91,9 @@
                 <label for="processing">Обработка:</label>
                 <select id="processing" required>
                     <option disabled selected>Выберите обработку</option>
-                    <option value="Покрытие ПК">Покрытие ПК</option>
+                    <option value="Покрытие ПК">Полировка кромки</option>
                     <option value="Шлифовка">Шлифовка</option>
-                    <option value="Фацетирование">Фацетирование</option>
+                    <option value="Фацетирование">Фацет</option>
                 </select>
             </div>
             
@@ -104,7 +104,7 @@
         </section>
         
         <footer>
-            <button type="button" onclick="calculateResult()">Рассчитать</button>
+            <button type="button" onclick="calculateResult()">Поехали!</button>
         </footer>
     </form>
     
