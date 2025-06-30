@@ -21,23 +21,23 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
+.header h1 {
     font-size: 2rem;
     text-align: center;
     color: #007aff;
     margin-bottom: 20px;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.label-text {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 5px;
+.field-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Расстояние между блоками */
 }
 
 .radio-group label {
@@ -103,18 +103,6 @@ footer button:hover {
 .output li span {
     font-weight: bold;
     color: #007aff;
-}
-
-.select-container {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-}
-
-label {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 5px;
 }
 
 select {
