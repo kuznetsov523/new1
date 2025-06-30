@@ -9,81 +9,101 @@
 <body>
 <div class="calculator">
     <header>
-        <h1>Калькулятор техкарт WCS</h1>
+        <h1>Калькулятор технических карт</h1>
     </header>
     <form onsubmit="return false;" autocomplete="off">
         <section class="input-section">
-            <label for="order-number">Номер заказа:</label>
-            <input type="text" id="order-number" required placeholder="Введите номер заказа">
-            
-            <label for="material-type">Тип материала:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="material" value="Стекло" checked onclick="showAdditionalField()"> Стекло</label>
-                <label><input type="radio" name="material" value="Зеркало" onclick="showAdditionalField()"> Зеркало</label>
+            <!-- Начало пункта: Номер заказа -->
+            <div class="field-item">
+                <label for="order-number">Номер заказа:</label>
+                <input type="text" id="order-number" required placeholder="Введите номер заказа">
             </div>
             
-            <!-- Дополнительные поля для стекла -->
+            <!-- Пункт: Тип материала -->
+            <div class="field-item">
+                <label for="material-type">Тип материала:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="material" value="Стекло" checked onclick="showAdditionalField()"> Стекло</label>
+                    <label><input type="radio" name="material" value="Зеркало" onclick="showAdditionalField()"> Зеркало</label>
+                </div>
+            </div>
+            
+            <!-- Начнем блок для стекла -->
             <div id="additional-field-glass" style="display:block;">
-                <label for="glass-type">Тип стекла:</label>
-                <select id="glass-type">
-                    <option value="">Выберите тип стекла</option>
-                    <option value="Прозрачное">Прозрачное</option>
-                    <option value="Осветлённое">Осветлённое</option>
-                    <option value="Матовое">Матовое</option>
-                    <option value="Серое">Серое</option>
-                    <option value="Бронзовое">Бронзовое</option>
-                </select>
+                <!-- Пункт: Тип стекла -->
+                <div class="field-item">
+                    <label for="glass-type">Тип стекла:</label>
+                    <select id="glass-type">
+                        <option value="">Выберите тип стекла</option>
+                        <option value="Прозрачное">Прозрачное</option>
+                        <option value="Осветлённое">Осветлённое</option>
+                        <option value="Матовое">Матовое</option>
+                        <option value="Серое">Серое</option>
+                        <option value="Бронзовое">Бронзовое</option>
+                    </select>
+                </div>
                 
-                <!-- Поле выбора толщины для стекла -->
-                <label for="thickness-glass">Толщина стекла:</label>
-                <select id="thickness-glass">
-                    <option value="">Выберите толщину</option>
-                    <option value="3">3 мм</option>
-                    <option value="4">4 мм</option>
-                    <option value="5">5 мм</option>
-                    <option value="6">6 мм</option>
-                    <option value="8">8 мм</option>
-                    <option value="10">10 мм</option>
-                    <option value="12">12 мм</option>
-                </select>
+                <!-- Пункт: Толщина стекла -->
+                <div class="field-item">
+                    <label for="thickness-glass">Толщина стекла:</label>
+                    <select id="thickness-glass">
+                        <option value="">Выберите толщину</option>
+                        <option value="3">3 мм</option>
+                        <option value="4">4 мм</option>
+                        <option value="5">5 мм</option>
+                        <option value="6">6 мм</option>
+                        <option value="8">8 мм</option>
+                        <option value="10">10 мм</option>
+                        <option value="12">12 мм</option>
+                    </select>
+                </div>
             </div>
             
-            <!-- Дополнительные поля для зеркала -->
+            <!-- Аналогично для зеркала -->
             <div id="additional-field-mirror" style="display:none;">
-                <label for="mirror-type">Тип зеркала:</label>
-                <select id="mirror-type">
-                    <option value="">Выберите тип зеркала</option>
-                    <option value="Серебряное">Серебряное</option>
-                    <option value="Осветлённое">Осветлённое</option>
-                    <option value="Графитовое">Графитовое</option>
-                    <option value="Состаренное">Состаренное</option>
-                </select>
-                
-                <!-- Поле выбора толщины для зеркала -->
-                <label for="thickness-mirror">Толщина зеркала:</label>
-                <select id="thickness-mirror">
-                    <option value="">Выберите толщину</option>
-                    <option value="4">4 мм</option>
-                    <option value="6">6 мм</option>
+                <div class="field-item">
+                    <label for="mirror-type">Тип зеркала:</label>
+                    <select id="mirror-type">
+                        <option value="">Выберите тип зеркала</option>
+                        <option value="Серебряное">Серебряное</option>
+                        <option value="Осветлённое">Осветлённое</option>
+                        <option value="Графитовое">Графитовое</option>
+                        <option value="Состаренное">Состаренное</option>
+                    </select>
+                </div>
+                <div class="field-item">
+                    <label for="thickness-mirror">Толщина зеркала:</label>
+                    <select id="thickness-mirror">
+                        <option value="">Выберите толщину</option>
+                        <option value="4">4 мм</option>
+                        <option value="6">6 мм</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Другие стандартные поля -->
+            <div class="field-item">
+                <label for="dimensions">Размеры (Д х Ш в мм):</label>
+                <div class="dimension-input-group">
+                    <input type="number" id="length" min="1" placeholder="Длина" required>
+                    <input type="number" id="width" min="1" placeholder="Ширина" required>
+                </div>
+            </div>
+            
+            <div class="field-item">
+                <label for="processing">Обработка:</label>
+                <select id="processing" required>
+                    <option disabled selected>Выберите обработку</option>
+                    <option value="Покрытие ПК">Покрытие ПК</option>
+                    <option value="Шлифовка">Шлифовка</option>
+                    <option value="Фацетирование">Фацетирование</option>
                 </select>
             </div>
             
-            <label for="dimensions">Размеры (Д х Ш в мм):</label>
-            <div class="dimension-input-group">
-                <input type="number" id="length" min="1" placeholder="Длина" required>
-                <input type="number" id="width" min="1" placeholder="Ширина" required>
+            <div class="field-item">
+                <label for="quantity">Количество изделий:</label>
+                <input type="number" id="quantity" min="1" placeholder="Количество изделий" required>
             </div>
-            
-            <label for="processing">Обработка:</label>
-            <select id="processing" required>
-                <option disabled selected>Выберите обработку</option>
-                <option value="Покрытие ПК">Покрытие ПК</option>
-                <option value="Шлифовка">Шлифовка</option>
-                <option value="Фацетирование">Фацетирование</option>
-            </select>
-            
-            <label for="quantity">Количество изделий:</label>
-            <input type="number" id="quantity" min="1" placeholder="Количество изделий" required>
         </section>
         
         <footer>
