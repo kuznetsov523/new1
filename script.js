@@ -36,14 +36,22 @@ function calculateResult() {
         thicknessOutput = document.getElementById('thickness-mirror').value;
     }
 
-    // Проверка, что заказ и размеры указаны
-    if (!orderNumber || length === 0 || width === 0) {
-        alert('Необходимо заполнить номер заказа и размеры изделия.');
+    // Проверка, что все поля заполнены правильно
+    if (
+        !orderNumber ||
+        typeOutput.length === 0 ||
+        thicknessOutput.length === 0 ||
+        length === 0 ||
+        width === 0 ||
+        quantity === 0 ||
+        processingMethod.length === 0
+    ) {
+        alert('Проверьте правильность заполнения всех полей.');
         return;
     }
 
     // Формирование результата в правильном формате
-    const sizeOutput = `${length}×${width}×${thicknessOutput}`;
+    const sizeOutput = `${length}×${width}×${thicknessOutput} мм`; // Включаем единицу измерения
     const finalResult = `${orderNumber}, ${selectedMaterial}, ${typeOutput}, ${sizeOutput}, ${processingMethod}`;
 
     // Вывод результатов
