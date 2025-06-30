@@ -13,10 +13,10 @@
     </header>
     <form onsubmit="return false;" autocomplete="off">
         <section class="input-section">
-            <!-- Начало пункта: Номер заказа -->
+            <!-- Начинаем с Номер заказа -->
             <div class="field-item">
                 <label for="order-number">Номер заказа:</label>
-                <input type="text" id="order-number" required placeholder="Введите номер заказа">
+                <input type="text" id="order-number" pattern=".{3,}" title="Минимум 3 символа" required placeholder="Введите номер заказа">
             </div>
             
             <!-- Пункт: Тип материала -->
@@ -28,13 +28,12 @@
                 </div>
             </div>
             
-            <!-- Начнем блок для стекла -->
+            <!-- Блок выбора типа стекла и толщины стекла -->
             <div id="additional-field-glass" style="display:block;">
-                <!-- Пункт: Тип стекла -->
                 <div class="field-item">
                     <label for="glass-type">Тип стекла:</label>
-                    <select id="glass-type">
-                        <option value="">Выберите тип стекла</option>
+                    <select id="glass-type" required>
+                        <option value="" disabled selected>Выберите тип стекла</option>
                         <option value="Прозрачное">Прозрачное</option>
                         <option value="Осветлённое">Осветлённое</option>
                         <option value="Матовое">Матовое</option>
@@ -42,12 +41,10 @@
                         <option value="Бронзовое">Бронзовое</option>
                     </select>
                 </div>
-                
-                <!-- Пункт: Толщина стекла -->
                 <div class="field-item">
                     <label for="thickness-glass">Толщина стекла:</label>
-                    <select id="thickness-glass">
-                        <option value="">Выберите толщину</option>
+                    <select id="thickness-glass" required>
+                        <option value="" disabled selected>Выберите толщину</option>
                         <option value="3">3 мм</option>
                         <option value="4">4 мм</option>
                         <option value="5">5 мм</option>
@@ -63,8 +60,8 @@
             <div id="additional-field-mirror" style="display:none;">
                 <div class="field-item">
                     <label for="mirror-type">Тип зеркала:</label>
-                    <select id="mirror-type">
-                        <option value="">Выберите тип зеркала</option>
+                    <select id="mirror-type" required>
+                        <option value="" disabled selected>Выберите тип зеркала</option>
                         <option value="Серебряное">Серебряное</option>
                         <option value="Осветлённое">Осветлённое</option>
                         <option value="Графитовое">Графитовое</option>
@@ -73,15 +70,15 @@
                 </div>
                 <div class="field-item">
                     <label for="thickness-mirror">Толщина зеркала:</label>
-                    <select id="thickness-mirror">
-                        <option value="">Выберите толщину</option>
+                    <select id="thickness-mirror" required>
+                        <option value="" disabled selected>Выберите толщину</option>
                         <option value="4">4 мм</option>
                         <option value="6">6 мм</option>
                     </select>
                 </div>
             </div>
             
-            <!-- Другие стандартные поля -->
+            <!-- Стандартные поля -->
             <div class="field-item">
                 <label for="dimensions">Размеры (Д х Ш в мм):</label>
                 <div class="dimension-input-group">
