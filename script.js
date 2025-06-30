@@ -46,7 +46,7 @@ function calculateResult() {
         quantity === 0 ||
         processingMethod.length === 0
     ) {
-        alert('Невозможно ехать, не заполненны поля!');
+        alert('Невозможно ехать, не заполнены поля!');
         return;
     }
 
