@@ -15,6 +15,11 @@ function showAdditionalField() {
     }
 }
 
+// Обновляем результат при изменении флажков
+function updateResult() {
+    calculateResult();
+}
+
 // Основной скрипт расчётов
 function calculateResult() {
     const orderNumber = document.getElementById('order-number').value.trim();
@@ -46,13 +51,17 @@ function calculateResult() {
         quantity === 0 ||
         processingMethod.length === 0
     ) {
-        alert('Невозможно ехать, не заполнены поля!');
+        alert('Проверьте правильность заполнения всех полей.');
         return;
     }
 
+    // Определяем состояние отверстий и формы
+    const holesChecked = document.querySelector('input[name="holes"][value="Да"]').checked ? ', Отверстия по КД' : '';
+    const shapeChecked = document.querySelector('input[name="shape"][value="Да"]').checked ? ', Форма по КД' : '';
+
     // Формирование результата в правильном формате
     const sizeOutput = `${length}×${width}×${thicknessOutput} мм`; // Включаем единицу измерения
-    const finalResult = `${orderNumber}, ${selectedMaterial}, ${typeOutput}, ${sizeOutput}, ${processingMethod}`;
+    const finalResult = `${orderNumber}, ${selectedMaterial}, ${typeOutput}, ${sizeOutput}, ${processingMethod}${holesChecked}${shapeChecked}`;
 
     // Вывод результатов
     document.getElementById('final-result').textContent = finalResult;
